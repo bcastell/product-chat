@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export FLASK_APP=app.py
+export FLASK_DEBUG=0
+
+export TWILIO_ACCOUNT_SID=
+export TWILIO_AUTH_TOKEN=
+export TWILIO_PHONE_NUMBER=
+
+export TEXT_ANALYTICS_KEY=
+export TEXT_ANALYTICS_SENTIMENT_URL=

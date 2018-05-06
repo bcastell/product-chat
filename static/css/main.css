@@ -1,0 +1,27 @@
+.stretch-y {
+	height: 100%;
+}
+
+.title {
+	margin-left: 20px;
+}
+
+.customer-container {
+	margin-top: 30px;
+}
+
+.messages-container {
+	margin-top: 30px;
+}
+
+.dashboard-container {
+	margin-bottom: 0;
+}
+
+.dashboard-footer {
+	height: 40px;
+}
+
+.card-text {
+	color: rgba(0, 0, 0, 0.87);
+}

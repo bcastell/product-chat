@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="stretch-y">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Dashboard</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	</head>
+	<body class="stretch-y">
+		<nav>
+			<div class="nav-wrapper red darken-2">
+				<a class="brand-logo left title"><i class="material-icons">dashboard</i>Dashboard</a>
+			</div>
+		</nav>
+		<form class="stretch-y dashboard-container" action="/" method="POST">
+			<div class="row stretch-y">
+				<div class="col s3 stretch-y z-depth-2">
+					<div class="row customer-container">
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">account_circle</i>
+								<input id="customer_name" type="text" class="validate" name="name" required>
+								<label for="customer_name">Customer Name</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">phone</i>
+								<input id="customer_phone_number" type="text" class="validate" name="phone" required
+									   pattern="(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})">
+								<label for="customer_phone_number">Customer Phone Number</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">local_drink</i>
+								<select name="drink">
+									<option value="Cherry Coke">Cherry Coke</option>
+									<option value="Lime Coke">Lime Coke</option>
+									<option value="Vanilla Coke">Vanilla Coke</option>
+								</select>
+								<label>Coca-Cola Drinks</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12 center-align">
+								<button class="btn waves-effect waves-light" type="submit" name="action">Send SMS</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col s9 messages-container">
+					<div class="row">
+						<div class="col s12">
+							<div class="card-panel">
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="material-icons prefix">chat_bubble</i>
+										{% if request.args.get('first_msg') %}
+										<input id="first_message" type="text" class="validate" name="first_message"
+											   value="{{ request.args.get('first_msg') }}" required>
+										{% else %}
+										<input id="first_message" type="text" class="validate" name="first_message" required>
+										{% endif %}
+										<label for="first_message">First Automated Message</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s12">
+							<div class="card-panel">
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="material-icons prefix">mood</i>
+										{% if request.args.get('pos_resp') %}
+										<input id="positive_response" type="text" class="validate" name="positive_response"
+											   value="{{ request.args.get('pos_resp') }}" required>
+										{% else %}
+										<input id="positive_response" type="text" class="validate" name="positive_response" required>
+										{% endif %}
+										<label for="positive_response">Positive Response</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s12">
+							<div class="card-panel">
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="material-icons prefix">mood_bad</i>
+										{% if request.args.get('neg_resp') %}
+										<input id="negative_response" type="text" class="validate" name="negative_response"
+											   value="{{ request.args.get('neg_resp') }}" required>
+										{% else %}
+										<input id="negative_response" type="text" class="validate" name="negative_response" required>
+										{% endif %}
+										<label for="negative_response">Negative Response</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="dashboard-footer red darken-2"></div>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+	</body>
+</html>
