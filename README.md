@@ -1,3 +1,11 @@
+# Product-Chat
+
+Automate SMS responses to customer feedback using sentiment analysis
+
+<p align="center">
+  <img src="display.png">
+</p>
+
 # Setup
 Assumes a macOS environment.
 
